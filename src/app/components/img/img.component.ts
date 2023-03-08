@@ -16,6 +16,8 @@ export class ImgComponent {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.img);
+
   }
 
   imgError() {

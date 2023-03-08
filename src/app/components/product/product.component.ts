@@ -10,14 +10,21 @@ export class ProductComponent {
 
   @Input() product: Product = {
     id: 0,
-    name: '',
+    title: '',
     price: 0,
-    img: ''
+    category: '',
+    image: '',
+    description: ''
    }
    @Output() addedProduct= new EventEmitter<Product>();
 
 
   constructor() { }
+
+  ngOnInit(): void {
+console.log(this.product);
+
+  }
 
   addToCart() {
     this.addedProduct.emit(this.product);

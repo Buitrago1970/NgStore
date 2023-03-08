@@ -29,6 +29,10 @@
       <a href="">
         <img src="../../../assets/icon_shopping_cart.svg" alt="logo">
       </a>
+      <span *ngIf="counter > 9; else lessLength">+9</span>
+      <ng-template #lessLength>
+        <span>{{counter}}</span>
+      </ng-template>
     </div>
   </div>
 
