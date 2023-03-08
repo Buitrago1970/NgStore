@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'store';
+  imgFather: string = 'https://www.w3schools.com/w3css/img_lights.jpg';
+
+  constructor() { }
+
+  loadedImage( img: string) {
+    console.log('loadedImage padre', img);
+  }
 }
