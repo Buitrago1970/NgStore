@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  isMenuExpanded = false;
+
+  toggleMenu() {
+    this.isMenuExpanded = !this.isMenuExpanded;
+  }
+
 }

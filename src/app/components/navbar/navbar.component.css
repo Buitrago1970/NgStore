@@ -1,0 +1,13 @@
+.transition-all {
+  transition-property: all;
+  transition-duration: 1500ms;
+  transition-timing-function: ease;
+}
+
+.max-h-0 {
+  max-height: 0;
+}
+
+.max-h-screen {
+  max-height: 100vh;
+}

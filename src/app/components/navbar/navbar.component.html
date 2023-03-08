@@ -1,7 +1,7 @@
 <div class="sm:block shadow-md">
   <!-- Show on mobile -->
   <div class="px-4 py-2 flex justify-between items-center sm:hidden">
-    <button>
+    <button (click)="toggleMenu()">
       <img src="../../../assets/icon_menu.svg" alt="menu">
     </button>
     <a href="">
@@ -19,9 +19,9 @@
         <img src="../../../assets/logo_yard_sale.svg" alt="logo">
       </a>
       <ul class="flex list-none">
-        <li><a class="mr-2  " href="">All</a></li>
-        <li><a class="mr-2 " href="">Clothes</a></li>
-        <li><a class="mr-2 " href="">Electronics</a></li>
+        <li><a class="mr-2" href="">All</a></li>
+        <li><a class="mr-2" href="">Clothes</a></li>
+        <li><a class="mr-2" href="">Electronics</a></li>
       </ul>
     </nav>
     <div class="flex items-center">
@@ -31,4 +31,12 @@
       </a>
     </div>
   </div>
-</div>
+
+  <!-- Mobile menu -->
+  <div class="sm:hidden transition-all duration-500 ease max-h-0 " [ngClass]="{'max-h-screen': isMenuExpanded}">
+    <ul class="p-4 mb-10 ">
+      <li class="mb-2"><a href="#">All</a></li>
+      <li class="mb-2"><a href="#">Clothes</a></li>
+      <li class="mb-2"><a href="#">Electronics</a></li>
+    </ul>
+  </div>
