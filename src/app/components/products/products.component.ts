@@ -14,6 +14,15 @@ export class ProductsComponent {
   cart : Product[] = [];
   total : number = 0;
   products: Product[] = []
+  showProductDetail: boolean = false;
+  productDetail: Product = {
+    id: 0,
+    title: '',
+    price: 0,
+    description: '',
+    category: '',
+    images: ['']
+  }
 
   constructor(
     private store: StoreService,
@@ -29,5 +38,14 @@ export class ProductsComponent {
     this.store.addToCart(product);
     this.cart = this.store.getCart();
     this.total = this.store.getTotal();
+  }
+  toggleProductDetail() {
+    this.showProductDetail = !this.showProductDetail;
+  }
+  showProductDetails(id: number) {
+    this.productsService.getProduct(id).subscribe( data => {
+      this.productDetail = data;
+    })
+    this.toggleProductDetail();
   }
 }

@@ -10,14 +10,13 @@ export class ImgComponent {
   @Input() img: string = '';
   @Input() alt: string = '';
   @Output() loaded = new EventEmitter<string>();
+  imgHeight : number = 200;
 
   imgDefault : string = 'https://www.m2crowd.com/core/i/placeholder.png';
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.img);
-
   }
 
   imgError() {

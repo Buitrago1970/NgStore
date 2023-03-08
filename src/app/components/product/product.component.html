@@ -1,8 +1,11 @@
-<app-img [img]="product.image" [alt]="product.title"></app-img>
-<p>
-  {{product.title}}
-</p>
-<p>
-  {{product.price}}
-</p>
-<button (click)="addToCart()">Add to cart</button>
+<div class="flex flex-col justify-between h-full">
+  <app-img [img]="product.images[0]" [alt]="product.title" class="rounded-lg object-cover h-40 md:h-48"></app-img>
+  <div class="text-gray-700 mt-2">
+    <p class="text-lg font-medium">{{product.title}}</p>
+    <p class="text-sm mt-1">{{product.price}}</p>
+    <div class="space-x-5">
+      <button (click)="addToCart()" class="mt-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg py-2 px-4 font-medium transition-colors duration-300 ease-in-out">Add to cart</button>
+      <button (click)="seeProductDetails()"  class="mt-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg py-2 px-4 font-medium transition-colors duration-300 ease-in-out">Open</button>
+    </div>
+  </div>
+</div>

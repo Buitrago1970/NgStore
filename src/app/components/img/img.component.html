@@ -1,5 +1,1 @@
-<img width="300" (load)="loadedImage()" (error)="imgError()" [src]="img" alt="" *ngIf="img; else elseImg">
-
-<ng-template #elseImg>
-  <img width="300" [src]="imgDefault" alt="">
-</ng-template>
+<div [ngStyle]="{'background-image': 'url(' + img + ')', 'background-size': 'cover', 'background-position': 'center'}" (load)="loadedImage()" (error)="imgError()" class="rounded-lg object-cover h-40 md:h-48"></div>
