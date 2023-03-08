@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from '../../modals/product.model';
+import { Product, ProductDetailDTO } from '../../modals/product.model';
 import { StoreService } from '../../services/store.service';
 import {ProductsService} from '../../services/products.service';
 
@@ -21,6 +21,13 @@ export class ProductsComponent {
     price: 0,
     description: '',
     category: '',
+    images: ['']
+  }
+  newProduct: ProductDetailDTO = {
+    title: 'ewrewrew',
+    price: 12,
+    description: 'wewqeqwewqeqweqw',
+    categoryId: 3,
     images: ['']
   }
 
@@ -48,4 +55,11 @@ export class ProductsComponent {
     })
     this.toggleProductDetail();
   }
+  addNewProduct() {
+    this.productsService.create(this.newProduct).subscribe( data => {
+     console.log(data);
+
+    })
+  }
+  // this.toggleProductDetail();
 }
