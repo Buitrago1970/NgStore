@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { UsersService } from './services/users.service';
+import {AuthService} from './services/auth.service';
+
+import { User } from './modals/user.model';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +10,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  imgFather: string = 'https://www.w3schools.com/w3css/img_lights.jpg';
+  constructor(
+    private usersService: UsersService,
+  ) { }
 
-  constructor() { }
-
-  loadedImage( img: string) {
-    console.log('loadedImage padre', img);
+  ngOnInit() {
+  }
+  create() {
+    const user: User = {
+      email: 'testEmail@mail.com',
+      name: 'testName',
+      password: 'testPassword'
+    };
+    this.usersService.create(user).subscribe( data => {
+      console.log(data);
+    }
+    )
   }
 }

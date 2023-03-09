@@ -25,7 +25,15 @@
       </ul>
     </nav>
     <div class="flex items-center">
-      <div class="mr-2">test@mail.com</div>
+      <div>
+        <button *ngIf="!token;else elseBlock" (click)="login()" >
+          login
+        </button>
+        <ng-template #elseBlock>
+          <p>{{user.email}}</p>
+          </ng-template>
+
+      </div>
       <a href="">
         <img src="../../../assets/icon_shopping_cart.svg" alt="logo">
       </a>
