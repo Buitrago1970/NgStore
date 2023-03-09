@@ -25,10 +25,13 @@ export class ProductComponent {
   ngOnInit(): void {
   }
 
-  addToCart() {
+  addToCart(event: any) {
+
+    event.stopPropagation();
     this.addedProduct.emit(this.product);
   }
-  seeProductDetails() {
+  seeProductDetails(event: any) {
+    event.stopPropagation();
     this.showProduct.emit(this.product.id);
   }
 

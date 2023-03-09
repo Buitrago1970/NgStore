@@ -54,7 +54,6 @@ export class ProductsComponent {
   }
   addNewProduct() {
     this.productsService.create(this.newProduct).subscribe( data => {
-     console.log(data);
 
     })
   }

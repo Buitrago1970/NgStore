@@ -15,6 +15,8 @@ import { TokenInterceptorInterceptor } from './interceptors/token-interceptor.in
 import { HomeComponent } from './pages/home/home.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     NavbarComponent,
     HomeComponent,
     CategoryComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-  <app-product class="border border-gray-200 bg-white p-4 rounded-lg shadow-lg" (showProduct)="showProductDetails($event)" (addedProduct)="addToCart($event)" [product]="product"  *ngFor="let product of products"></app-product>
+  <app-product class="border border-gray-200 bg-white p-4 rounded-lg shadow-lg cursor-pointer" (showProduct)="showProductDetails($event)" (addedProduct)="addToCart($event)" [product]="product"  *ngFor="let product of products"  ></app-product>
   <button
     class="border border-gray-200 bg-white p-4 rounded-lg shadow-lg"
     (click)="onLoadMore()"
@@ -8,9 +8,8 @@
   </button>
 </div>
 
-
 <!-- slice product details -->
-<div class="product-detail" [class.active]="showProductDetail">
+<div class="product-detail " [class.active]="showProductDetail">
   <div>
     <p>
       {{productDetail.title}}
