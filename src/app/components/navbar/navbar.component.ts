@@ -13,13 +13,7 @@ import { UserDTO } from 'src/app/modals/user.model';
 export class NavbarComponent {
   isMenuExpanded = false;
   counter = 0;
-  token = '';
-  user: UserDTO = {
-    email: '',
-    id: 0,
-    name: '',
-    password: '',
-  };
+  user: UserDTO | null = null;
 
   constructor(
     private storeService: StoreService,
@@ -44,9 +38,6 @@ export class NavbarComponent {
     this.authService
       .login(auth)
       .pipe(
-        tap((data: any) => {
-          this.token = data.access_token;
-        }),
         switchMap(() => this.getUser())
       )
       .subscribe((data: any) => {
@@ -55,6 +46,6 @@ export class NavbarComponent {
   }
 
   getUser() {
-    return this.authService.getUserData(this.token);
+    return this.authService.getUserData();
   }
 }

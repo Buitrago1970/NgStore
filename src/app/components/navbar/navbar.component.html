@@ -26,11 +26,11 @@
     </nav>
     <div class="flex items-center">
       <div>
-        <button *ngIf="!token;else elseBlock" (click)="login()" >
+        <button *ngIf="!user;else elseBlock" (click)="login()" >
           login
         </button>
         <ng-template #elseBlock>
-          <p>{{user.email}}</p>
+          <p>{{user?.email}}</p>
           </ng-template>
 
       </div>
