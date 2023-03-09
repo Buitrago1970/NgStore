@@ -18,10 +18,11 @@
       <a class="mr-4" href="">
         <img src="../../../assets/logo_yard_sale.svg" alt="logo">
       </a>
-      <ul class="flex list-none">
+      <ul class="flex list-none space-x-10">
         <li><a class="mr-2" href="">All</a></li>
-        <li><a class="mr-2" href="">Clothes</a></li>
-        <li><a class="mr-2" href="">Electronics</a></li>
+        <li class="mb-2" *ngFor="let item of categoriesList">
+          <a [routerLink]="['/category', item.id]" routerLinkActive="active">{{item.name}}</a>
+        </li>
       </ul>
     </nav>
     <div class="flex items-center">
@@ -48,7 +49,8 @@
   <div class="sm:hidden transition-all duration-500 ease max-h-0 " [ngClass]="{'max-h-screen': isMenuExpanded}">
     <ul class="p-4 mb-10 ">
       <li class="mb-2"><a href="#">All</a></li>
-      <li class="mb-2"><a href="#">Clothes</a></li>
-      <li class="mb-2"><a href="#">Electronics</a></li>
+      <li class="mb-2" *ngFor="let item of categoriesList">
+        <a href="#">{{item.name}}</a>
+      </li>
     </ul>
   </div>

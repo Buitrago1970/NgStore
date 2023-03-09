@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product, ProductDetailDTO } from '../../modals/product.model';
 import { StoreService } from '../../services/store.service';
 import {ProductsService} from '../../services/products.service';
@@ -10,10 +10,12 @@ import {ProductsService} from '../../services/products.service';
 })
 export class ProductsComponent {
 
+  @Input() products: Product[] = [];
+  @Output() LoadMore = new EventEmitter();
+
 
   cart : Product[] = [];
   total : number = 0;
-  products: Product[] = []
   showProductDetail: boolean = false;
   productDetail: Product = {
     id: 0,
@@ -36,11 +38,6 @@ export class ProductsComponent {
     private productsService: ProductsService
   ) { }
 
-  ngOnInit(): void {
-    this.productsService.getProducts().subscribe( data => {
-      this.products = data;
-    })}
-
   addToCart(product: Product) {
     this.store.addToCart(product);
     this.cart = this.store.getCart();
@@ -61,5 +58,8 @@ export class ProductsComponent {
 
     })
   }
-  // this.toggleProductDetail();
+  onLoadMore() {
+    this.LoadMore.emit();
+  }
+
 }

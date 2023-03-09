@@ -11,3 +11,10 @@
 .max-h-screen {
   max-height: 100vh;
 }
+.active{
+  border: 1px solid #acd9b2;
+border-radius: 10px;
+padding: 5px;
+transition: all 0.3s ease;
+
+}

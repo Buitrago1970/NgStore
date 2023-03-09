@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { StoreService } from 'src/app/services/store.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Auth } from 'src/app/modals/auth.model';
 import { UserDTO } from 'src/app/modals/user.model';
+import { CategoriesService } from '../../services/categories.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -14,16 +16,21 @@ export class NavbarComponent {
   isMenuExpanded = false;
   counter = 0;
   user: UserDTO | null = null;
+  categoriesList: any[] = [];
 
   constructor(
     private storeService: StoreService,
-    private authService: AuthService
+    private authService: AuthService,
+    private categoriesService: CategoriesService
+
   ) {}
 
   ngOnInit() {
     this.storeService.cart$.subscribe((data) => {
       this.counter = data.length;
     });
+    this.loadCategories();
+
   }
 
   toggleMenu() {
@@ -44,8 +51,13 @@ export class NavbarComponent {
         this.user = data;
       });
   }
-
   getUser() {
     return this.authService.getUserData();
+  }
+
+  loadCategories() {
+    this.categoriesService.getCategories().subscribe( (data:any) => {
+      this.categoriesList = data;
+    })
   }
 }
