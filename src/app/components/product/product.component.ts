@@ -14,7 +14,11 @@ export class ProductComponent {
     price: 0,
     description: '',
     category: '',
-    images: ['']
+    image: '',
+    rating: {
+      count: 0,
+      rate: 0
+    }
    }
    @Output() addedProduct= new EventEmitter<Product>();
    @Output() showProduct= new EventEmitter<number>();
@@ -23,6 +27,7 @@ export class ProductComponent {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.product);
   }
 
   addToCart(event: any) {

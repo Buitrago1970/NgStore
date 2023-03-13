@@ -9,7 +9,11 @@ export interface Product {
   price: number;
   description: string;
   category: string;
-  images: [string];
+  image: string;
+  rating: {
+    count: number;
+    rate: number;
+  }
 }
 export interface ProductDetailDTO extends Omit<Product, 'id' | 'category'>{
   categoryId: number;

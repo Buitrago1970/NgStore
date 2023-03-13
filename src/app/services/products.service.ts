@@ -7,7 +7,7 @@ import { Product,ProductDetailDTO } from '../modals/product.model';
 })
 export class ProductsService {
 
-  private URL = 'https://young-sands-07814.herokuapp.com/api';
+  private URL = 'https://fakestoreapi.com';
 
   constructor(
     private http: HttpClient

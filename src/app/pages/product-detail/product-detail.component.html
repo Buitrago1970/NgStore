@@ -2,7 +2,7 @@
   <button routerLink="/">Back</button>
   <div class="detail" *ngIf="product">
     <div class="gallery">
-          <img [src]="product.images[0]" alt="img" />
+          <img [src]="product.image" alt="img" />
     </div>
     <div>
       <h1>{{ product.title }}</h1>

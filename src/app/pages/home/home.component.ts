@@ -26,6 +26,7 @@ export class HomeComponent {
     this.productsService.getALLProducts(this.limit, this.offset).subscribe( data => {
       this.products = data;
     })
+
     this.route.queryParamMap.subscribe( params => {
       this.productId = params.get('product');
       console.log(this.productId);

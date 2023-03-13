@@ -18,7 +18,6 @@ export class ProductsComponent {
    }
   }
 
-
   cart : Product[] = [];
   total : number = 0;
   showProductDetail: boolean = false;
@@ -28,14 +27,22 @@ export class ProductsComponent {
     price: 0,
     description: '',
     category: '',
-    images: ['']
+    image: '',
+    rating: {
+      count: 0,
+      rate: 0
+    }
   }
   newProduct: ProductDetailDTO = {
     title: 'ewrewrew',
     price: 12,
     description: 'wewqeqwewqeqweqw',
     categoryId: 3,
-    images: ['']
+    image: '',
+    rating: {
+      count: 0,
+      rate: 0
+    }
   }
 
   constructor(
