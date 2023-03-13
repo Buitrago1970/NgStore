@@ -26,7 +26,7 @@ export class ProductsService {
   getProducts() {
     return this.http.get<Product[]>(`${this.URL}/products`, { params: { limit: '10' }});
   }
-  getProduct(id: number) {
+  getProduct(id: number | null | string) {
     return this.http.get<Product>(`${this.URL}/products/${id}`);
   }
   create(product: ProductDetailDTO) {

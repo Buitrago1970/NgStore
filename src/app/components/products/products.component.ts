@@ -12,6 +12,11 @@ export class ProductsComponent {
 
   @Input() products: Product[] = [];
   @Output() LoadMore = new EventEmitter();
+  @Input() set productID(id: null | string | number) {
+   if (id !== null) {
+     this.showProductDetails(id);
+   }
+  }
 
 
   cart : Product[] = [];
@@ -44,9 +49,12 @@ export class ProductsComponent {
     this.total = this.store.getTotal();
   }
   toggleProductDetail() {
+    console.log('working');
+
     this.showProductDetail = !this.showProductDetail;
   }
-  showProductDetails(id: number) {
+  showProductDetails(id: number | null | string) {
+
     this.productsService.getProduct(id).subscribe( data => {
       this.productDetail = data;
     })
@@ -54,7 +62,6 @@ export class ProductsComponent {
   }
   addNewProduct() {
     this.productsService.create(this.newProduct).subscribe( data => {
-
     })
   }
   onLoadMore() {
