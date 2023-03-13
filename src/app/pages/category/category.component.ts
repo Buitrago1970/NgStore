@@ -26,6 +26,7 @@ export class CategoryComponent {
     this.route.paramMap.pipe(
       switchMap(params => {
         this.categoryId = Number(params.get('id'));
+        console.log(this.categoryId, 'id');
         return this.productsService.getByCategory(this.categoryId, this.limit, this.offset);
       })
     ).subscribe( data => {

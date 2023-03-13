@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CategoriesService {
-  private URL = 'https://young-sands-07814.herokuapp.com/api';
+  private URL = 'https://fakestoreapi.com/products';
 
   constructor(
     private http: HttpClient

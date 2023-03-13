@@ -16,6 +16,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './page/login/login.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
     HomeComponent,
     CategoryComponent,
     NotFoundComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

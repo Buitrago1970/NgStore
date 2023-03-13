@@ -16,7 +16,7 @@ export class NavbarComponent {
   isMenuExpanded = false;
   counter = 0;
   user: UserDTO | null = null;
-  categoriesList: any[] = [];
+  categoriesList: string[] = [];
 
   constructor(
     private storeService: StoreService,
@@ -58,6 +58,8 @@ export class NavbarComponent {
   loadCategories() {
     this.categoriesService.getCategories().subscribe( (data:any) => {
       this.categoriesList = data;
+      console.log(this.categoriesList);
+
     })
   }
 }

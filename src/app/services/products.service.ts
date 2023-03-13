@@ -33,7 +33,9 @@ export class ProductsService {
     return this.http.post(`${this.URL}/products`, product);
   }
   getByCategory(categoryId: number, limit: number, offset: number) {
-    return this.http.get<Product[]>(`${this.URL}/categories/${categoryId}/products`, { params: { limit: limit, offset: offset }});
+    console.log(`${this.URL}/products/${categoryId}/`, { params: { limit: limit, offset: offset }});
+
+    return this.http.get<Product[]>(`${this.URL}/products/${categoryId}/`, { params: { limit: limit, offset: offset }});
   }
   getMoreProductsByCategory(categoryId: number, limit: number, offset: number) {
     return this.http.get<Product[]>(`${this.URL}/categories/${categoryId}/products`, { params: { limit: limit, offset: offset }});

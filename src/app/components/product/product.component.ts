@@ -27,11 +27,9 @@ export class ProductComponent {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.product);
   }
 
   addToCart(event: any) {
-
     event.stopPropagation();
     this.addedProduct.emit(this.product);
   }
