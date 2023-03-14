@@ -16,7 +16,7 @@ export class AuthService {
     private tokenService: TokenService
   ) { }
 
-  login(auth: Auth) {
+  login(auth: Partial<{ username: string | null; password: string | null; }> | Auth) {
     return this.http.post(`${this.URL}/login`, auth)
     .pipe(
       tap(

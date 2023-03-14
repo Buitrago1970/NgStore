@@ -17,7 +17,6 @@ export class ProductsComponent {
      this.showProductDetails(id);
    }
   }
-
   cart : Product[] = [];
   total : number = 0;
   showProductDetail: boolean = false;

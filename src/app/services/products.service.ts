@@ -32,13 +32,13 @@ export class ProductsService {
   create(product: ProductDetailDTO) {
     return this.http.post(`${this.URL}/products`, product);
   }
-  getByCategory(categoryId: number, limit: number, offset: number) {
+  getByCategory(categoryId: string, limit: number, offset: number) {
     console.log(`${this.URL}/products/${categoryId}/`, { params: { limit: limit, offset: offset }});
 
-    return this.http.get<Product[]>(`${this.URL}/products/${categoryId}/`, { params: { limit: limit, offset: offset }});
+    return this.http.get<Product[]>(`${this.URL}/products/category/${categoryId}/`, { params: { limit: limit, offset: offset }});
   }
-  getMoreProductsByCategory(categoryId: number, limit: number, offset: number) {
-    return this.http.get<Product[]>(`${this.URL}/categories/${categoryId}/products`, { params: { limit: limit, offset: offset }});
+  getMoreProductsByCategory(categoryId: string, limit: number, offset: number) {
+    return this.http.get<Product[]>(`${this.URL}/products/category/${categoryId}`, { params: { limit: limit, offset: offset }});
   }
 
 }

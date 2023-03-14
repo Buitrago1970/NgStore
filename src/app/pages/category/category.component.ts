@@ -13,7 +13,8 @@ import { switchMap } from 'rxjs';
 export class CategoryComponent {
   products: Product[] = []
 
-  categoryId: number = 0;
+  x : string = '';
+  categoryId: string = '';
   limit: number = 10;
   offset: number = 0;
 
@@ -25,8 +26,7 @@ export class CategoryComponent {
   ngOnInit(): void {
     this.route.paramMap.pipe(
       switchMap(params => {
-        this.categoryId = Number(params.get('id'));
-        console.log(this.categoryId, 'id');
+        this.categoryId = params.get('id') || '';
         return this.productsService.getByCategory(this.categoryId, this.limit, this.offset);
       })
     ).subscribe( data => {

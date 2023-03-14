@@ -58,8 +58,6 @@ export class NavbarComponent {
   loadCategories() {
     this.categoriesService.getCategories().subscribe( (data:any) => {
       this.categoriesList = data;
-      console.log(this.categoriesList);
-
     })
   }
 }

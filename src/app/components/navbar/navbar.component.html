@@ -5,7 +5,7 @@
       <img src="../../../assets/icon_menu.svg" alt="menu">
     </button>
     <a href="">
-      <img src="../../../assets/logo_yard_sale.svg" alt="logo">
+      <img src="../../../assets/logo.png" alt="logo" class="w-14">
     </a>
     <a href="">
       <img src="../../../assets/icon_shopping_cart.svg" alt="logo">
@@ -16,7 +16,7 @@
   <div class="hidden sm:flex px-4 py-2 justify-between items-center">
     <nav class="flex items-center">
       <a class="mr-4" href="">
-        <img src="../../../assets/logo_yard_sale.svg" alt="logo">
+        <img src="../../../assets/logo.png" alt="logo" class="w-14">
       </a>
       <ul class="flex list-none space-x-10">
         <li><a class="mr-2" href="">All</a></li>
@@ -26,31 +26,34 @@
       </ul>
     </nav>
     <div class="flex items-center">
-      <div>
-        <button *ngIf="!user;else elseBlock" (click)="login()" >
+      <div class="px-10">
+        <button *ngIf="!user;else elseBlock" [routerLink]="['/login']" class="bg-primary hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" >
           login
         </button>
         <ng-template #elseBlock>
-          <p>{{user?.email}}</p>
+          <p cla>{{user?.email}}</p>
           </ng-template>
 
       </div>
       <a href="">
         <img src="../../../assets/icon_shopping_cart.svg" alt="logo">
       </a>
-      <span *ngIf="counter > 9; else lessLength">+9</span>
-      <ng-template #lessLength>
-        <span>{{counter}}</span>
-      </ng-template>
+      <ng-container *ngIf="counter > 0">
+        <span class="">
+          <span class="text-primary font-bold">{{ counter > 9 ? '+9' : counter }}</span>
+        </span>
+      </ng-container>
+
     </div>
   </div>
 
   <!-- Mobile menu -->
-  <div class="sm:hidden transition-all duration-500 ease max-h-0 " [ngClass]="{'max-h-screen': isMenuExpanded}">
+  <div class="sm:hidden transition-all duration-500 ease max-h-0 " [ngClass]="{'max-h-screen': isMenuExpanded}" *ngIf="isMenuExpanded">
     <ul class="p-4 mb-10 ">
-      <li class="mb-2"><a href="#">All</a></li>
+      <li class="mb-2"><a href="">All</a></li>
       <li class="mb-2" *ngFor="let item of categoriesList">
-        <a href="#">{{item}}</a>
+        <a [routerLink]="['/category', item]" routerLinkActive="active">{{item}}</a>
+
       </li>
     </ul>
   </div>

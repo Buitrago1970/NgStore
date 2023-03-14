@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,7 @@ import { CategoryComponent } from './pages/category/category.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './page/login/login.component';
+import {LoginComponent} from './pages/login/login.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { LoginComponent } from './page/login/login.component';
     AppRoutingModule,
     FormsModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

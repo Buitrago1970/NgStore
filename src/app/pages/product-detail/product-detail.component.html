@@ -1,13 +1,29 @@
-<div class="page-product">
-  <button routerLink="/">Back</button>
-  <div class="detail" *ngIf="product">
-    <div class="gallery">
-          <img [src]="product.image" alt="img" />
+<div class="min-h-screen flex flex-col">
+  <nav class="bg-gray-100 py-4 px-6 flex justify-between items-center">
+    <button class="text-gray-600 hover:text-gray-800 font-medium tracking-wider" routerLink="/">
+      &#8592; Back
+    </button>
+    <h1 class="text-2xl font-medium text-gray-800 tracking-widest">Product Details</h1>
+    <div></div>
+  </nav>
+  <main class="flex-grow flex items-center justify-center p-6">
+    <div class="w-1/2 flex items-center">
+      <img class="max-w-full h-auto rounded-md shadow-md" [src]="product.image" alt="Product Image" />
     </div>
-    <div>
-      <h1>{{ product.title }}</h1>
-      <h2>{{ product.price | currency }}</h2>
-      <p>{{ product.description }}</p>
+    <div class="w-1/2 px-6">
+      <h2 class="text-3xl font-bold text-gray-800 my-4">{{ product.title }}</h2>
+      <h3 class="text-2xl font-bold text-gray-700 mb-2">USD ${{ product.price }}</h3>
+      <p class="text-gray-600 my-4">{{ product.description }}</p>
+      <div class="flex items-center text-gray-600 mb-2">
+        <p class="mr-2">{{product.rating.count}}</p>
+        <span class="text-yellow-500">&#9733;</span>
+        <p class="ml-1">{{product.rating.rate}}</p>
+      </div>
+      <p class="text-gray-600 mb-2">Category: {{product.category}}</p>
+      <p class="text-gray-600 mb-4">ID: {{product.id}}</p>
+      <button class="py-2 px-6 bg-primary text-white rounded-md  font-medium tracking-widest" (click)="addToCart(product)">
+        Add to Cart
+      </button>
     </div>
-  </div>
+  </main>
 </div>

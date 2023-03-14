@@ -1,0 +1,14 @@
+input:focus {
+  outline: none;
+  border-color: #4d90fe;
+  box-shadow: 0 0 0 2px rgba(77, 144, 254, 0.4);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(77, 144, 254, 0.4);
+}
+.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.4);
+}
